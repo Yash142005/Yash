@@ -1,0 +1,608 @@
+/* BASIC RESET & FONT IMPORT */
+/* Use a professional Google Font for a refined look */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Dark background often highlights photos better */
+    font-family: 'Montserrat', sans-serif; 
+    color: #E0E0E0; /* Light text on dark background */
+    background-color: #121212;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- HEADER AND NAVIGATION --- */
+header {
+    background-color: #1A1A1A; /* Slightly lighter than body for contrast */
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333; /* Subtle separation line */
+    position: sticky; /* Keep navigation visible */
+    top: 0;
+    z-index: 100;
+}
+
+/* -------------------------------------- */
+/* 🌟 UPDATED: LOGO CONTAINER STYLING 🌟 */
+/* -------------------------------------- */
+
+.logo-container {
+    display: flex; /* Arrange logo elements side-by-side */
+    align-items: center; /* Vertically align them */
+    gap: 10px; /* Space between the image and the text */
+}
+
+/* Style for the logo image (fD Frames by Dweep) */
+.header-logo-image {
+    height: 80px; /* Define the height of the image */
+    width: auto;
+}
+
+/* Style for the text portion (Frames by Dweep) */
+.header-logo-text {
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    color: #F8F8F8;
+    font-weight: 700;
+    
+    /* 🌟 CRUCIAL ADDITION: Apply standard underline to the entire phrase 🌟 */
+    text-decoration: underline; 
+    border-bottom: none; /* Safely remove continuous line */
+    padding-bottom: 0;
+    
+    display: inline-block; 
+}
+
+/* Remove or hide the old .logo class style to prevent conflicts */
+.logo {
+    display: none; 
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 400;
+    position: relative;
+    /* Transition for subtle hover effect */
+    transition: color 0.3s ease; 
+}
+
+nav ul li a:hover {
+    color: #A9A9A9;
+}
+
+/* Underline effect on hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #E0E0E0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* --- MAIN CONTENT SECTIONS --- */
+main {
+    padding: 0 5%; /* Adjusted padding here as sections now control vertical spacing */
+    max-width: 1400px; /* Wider canvas for photos */
+    margin: 0 auto;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #F8F8F8;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 2.5em;
+    padding-top: 20px;
+}
+
+/* Base section padding is removed as 'content-section' handles it */
+section {
+    padding: 0; 
+}
+
+/* -------------------------------------- */
+/* 🌟 SECTION SEPARATION STYLING 🌟 */
+/* -------------------------------------- */
+
+/* Common styling for all major content sections */
+.content-section {
+    padding: 80px 0; /* Increased vertical padding for more separation */
+    margin: 0 auto;
+    max-width: 100%; /* Allows section background to span full width of main container */
+    transition: background-color 0.5s ease; 
+}
+
+/* Subtitle styling for section headers */
+.section-subtitle {
+    text-align: center;
+    color: #A9A9A9;
+    font-size: 1.1em;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Primary sections (Gallery, Contact) - Dark background */
+.primary-section {
+    background-color: #121212; 
+}
+
+/* Secondary sections (About) - Slightly lighter/contrasting background */
+.secondary-section {
+    background-color: #1A1A1A; 
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+
+/* -------------------------------------- */
+/* 🌟 NEW: ABOUT MAIN TITLE STYLING 🌟 */
+/* -------------------------------------- */
+
+.about-main-title {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto; /* Center the container */
+    padding-bottom: 10px; /* Small space below the title, before the slogan */
+}
+
+.about-main-title h2 {
+    /* Reuse global h2 styles but ensure visibility and proper spacing */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: #F8F8F8;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin: 0; /* Remove default margin */
+    /* Override the 'display: none;' we applied to generic h2 in the about section earlier */
+    display: block !important; 
+}
+
+/* Update Slogan margin to sit nicely below the new title */
+.about-slogan-main {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding-bottom: 40px; /* Increased space below slogan, before image/text block */
+}
+
+
+/* -------------------------------------- */
+/* 🌟 OVERHAUL: ABOUT SECTION LAYOUT 🌟 */
+/* -------------------------------------- */
+
+#about.secondary-section {
+    padding-top: 50px; /* Reduced top padding to bring logo higher */
+    padding-bottom: 80px; 
+}
+
+/* Hides the default titles to use the image logo instead */
+/* We keep h2 display:none here if it's outside the .about-main-title */
+#about h2:not(.about-main-title h2), #about .section-subtitle {
+    display: none; 
+}
+
+/* Top-Right Logo Area */
+.about-header-logo {
+    text-align: right; 
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding-right: 40px; 
+}
+
+.about-logo {
+    max-width: 250px; 
+    height: auto;
+    display: block; 
+}
+
+/* Main Flex Container for Image and Text */
+.about-content-flex-container {
+    display: flex;
+    align-items: center; /* Vertically center image and text */
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 60px; 
+    padding: 30px 40px; 
+    background-color: #121212; /* Dark background matching the image example */
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.about-image-side {
+    flex: 0 0 400px; 
+    max-width: 400px;
+    border-radius: 20px; 
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.about-profile-pic {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-profile-pic:hover {
+    transform: scale(1.02); 
+}
+
+.about-text-side {
+    flex: 1;
+    text-align: left;
+    color: #F8F8F8;
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+.about-paragraph {
+    margin-bottom: 25px; 
+    text-align: left;
+}
+
+.about-paragraph:last-child {
+    margin-bottom: 0; 
+}
+
+/* Old/Redundant About Styles (Kept for safety) */
+.about-content-wrapper, .about-image, .profile-pic, .about-text {
+    text-align: initial;
+    padding: initial;
+    background-color: initial;
+    box-shadow: initial;
+    border-radius: initial;
+}
+.about-content {
+    display: none; 
+}
+
+
+.contact-info {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: #F8F8F8;
+}
+
+
+/* -------------------------------------- */
+/* 🌟 GALLERY FILTER MENU STYLING 🌟 */
+/* -------------------------------------- */
+
+.filter-menu {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: #E0E0E0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    outline: none; 
+}
+
+.filter-btn:hover {
+    color: #F8F8F8;
+}
+
+/* Style for the currently active/selected filter button */
+.filter-btn.active {
+    color: #FFFFFF;
+    border-bottom: 3px solid #888; /* Highlight the active tab */
+    font-weight: 700;
+}
+
+
+/* --- PHOTOGRAPHY GALLERY GRID --- */
+.gallery-grid {
+    display: grid;
+    /* Important: Use display: grid/flex here if using opacity filter, NOT block */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; /* Larger gap provides breathing room */
+    margin-bottom: 50px;
+}
+
+.photo-item {
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    cursor: pointer;
+    /* Ensure transition includes opacity for JS filtering */
+    transition: opacity 0.4s ease, transform 0.4s ease; 
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease; 
+}
+
+.photo-item img:hover {
+    transform: scale(1.05); 
+    filter: brightness(0.9); 
+}
+
+/* -------------------------------------- */
+/* 🌟 CSS CLASS FOR JAVASCRIPT FILTERING 🌟 */
+/* -------------------------------------- */
+.photo-item.hidden {
+    /* Hide the item smoothly */
+    opacity: 0; 
+    /* This makes the grid reflow and the element disappear completely */
+    display: none; 
+}
+
+
+/* -------------------------------------- */
+/* 🌟 NEW: SERVICES SECTION STYLING 🌟 */
+/* -------------------------------------- */
+
+.services-section {
+    background-color: #F8E8E4; /* Light pink background from the image */
+    padding: 80px 5%; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.services-title {
+    font-family: 'Playfair Display', serif; /* Use an elegant font */
+    font-size: 3em; /* Larger size for main title */
+    color: #333333; /* Darker text for contrast on light background */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Uppercase as in the image */
+    font-weight: 700;
+}
+
+.services-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    color: #555555;
+    margin-bottom: 50px; /* Space before the service cards */
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+    gap: 25px; /* Space between each service card */
+    max-width: 600px; /* Max width for the stack of cards */
+    margin: 0 auto; /* Center the grid container */
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Take full width of its parent (.services-grid) */
+    padding: 20px 30px;
+    background-color: #FF6B35; /* Orange color from the image */
+    color: #FFFFFF; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    border-radius: 40px; /* Highly rounded corners for pill shape */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    background-color: #E65A2D; /* Slightly darker orange on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-icon {
+    font-size: 1.2em; /* Adjust arrow size */
+    margin-right: 10px; /* Space between arrow and text */
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: #1A1A1A;
+    color: #666;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+}
+
+/* -------------------------------------- */
+/* 🌟 NEW: SECTION TOGGLE STYLING 🌟 */
+/* -------------------------------------- */
+
+#services {
+    /* Set a smooth transition for the collapsing effect */
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    overflow: hidden; /* Ensures content is clipped when collapsed */
+    /* max-height: fit-content is often used, but JS handles the dynamic height. */
+}
+
+.hidden-section {
+    max-height: 0 !important; /* Forces the height to collapse */
+    opacity: 0; /* Optional: Fades out content */
+    padding-top: 0 !important; /* Remove section padding when collapsed */
+    padding-bottom: 0 !important; /* Remove section padding when collapsed */
+}
+
+/* Ensure the content-section padding doesn't interfere */
+#services.content-section {
+    /* Ensure padding is controlled by max-height transition */
+    padding-top: 80px; 
+    padding-bottom: 80px;
+}
+
+
+/* -------------------------------------- */
+/* 🌟 UPDATED MEDIA QUERIES 🌟 */
+/* -------------------------------------- */
+
+@media (max-width: 1100px) {
+    /* NEW: Stacks About Image and Text vertically on large tablets/laptops */
+    .about-content-flex-container {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .about-image-side {
+        flex: none; 
+        width: 70%;
+        max-width: 450px; 
+    }
+
+    .about-text-side {
+        text-align: center; 
+        font-size: 1.1em;
+    }
+    .about-paragraph {
+        text-align: center; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+    }
+
+    nav ul li a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+    
+    .filter-menu {
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    .filter-btn {
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 15px;
+    }
+    
+    .services-title {
+        font-size: 2.5em;
+    }
+    .services-subtitle {
+        font-size: 1.1em;
+    }
+    .service-card {
+        font-size: 1.2em;
+        padding: 18px 25px;
+        max-width: 90%; 
+    }
+    .services-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-header-logo {
+        padding-right: 20px;
+        margin-bottom: 30px;
+    }
+    .about-logo {
+        max-width: 180px;
+    }
+    .about-content-flex-container {
+        padding: 20px;
+        gap: 20px;
+        border-radius: 10px;
+    }
+    .about-image-side {
+        width: 85%;
+        max-width: 300px;
+    }
+    .about-text-side {
+        font-size: 1em;
+    }
+    
+    .service-card {
+        font-size: 1em;
+        padding: 15px 20px;
+        border-radius: 30px;
+    }
+    .services-grid {
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stack photos vertically on very small screens */
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    .services-title {
+        font-size: 2em;
+    }
+    .services-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+}

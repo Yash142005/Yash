@@ -42,8 +42,8 @@ header {
 
 /* Style for the logo image (fD Frames by Dweep) */
 .header-logo-image {
-    height: 80px; /* Define the height of the image */
-    width: auto;
+    height: 100px; /* Define the height of the image */
+    width: auto; /* Define the width of the image */
 }
 
 /* Style for the text portion (Frames by Dweep) */
